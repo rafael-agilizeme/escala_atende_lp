@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Dropdown & Mobile Menu Handlers
+  // 2. Mobile Menu Handlers
   const closeAllMenus = () => {
-    document.querySelectorAll('details[data-hb="mobile-nav"][open], details[data-hb="nav-login"][open]').forEach((el) => {
+    document.querySelectorAll('details[data-hb="mobile-nav"][open]').forEach((el) => {
       el.removeAttribute('open');
     });
   };
@@ -47,10 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // If clicked anchor inside nav, close mobile menu
     if (e.target.closest('a[href^="#"]')) {
       closeAllMenus();
-    }
-    // Close server menu if clicked outside
-    if (!e.target.closest('details[data-hb="nav-login"]')) {
-      document.querySelectorAll('details[data-hb="nav-login"][open]').forEach((el) => el.removeAttribute('open'));
     }
     // Close mobile menu if clicked outside
     if (!e.target.closest('details[data-hb="mobile-nav"]')) {
